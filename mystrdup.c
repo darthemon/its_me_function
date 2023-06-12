@@ -1,26 +1,27 @@
 #include <stdlib.h>
 
-int	strlen(char *str)
+int	mystrlen(char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while(str[i] != '\0')
-		i++;
-	return(i);
+	len = 0;
+	while(str[len] != '\0')
+		len++;
+	return(len);
 }
 
 char*	mystrdup(char *str)
 {
-	char*	c;
-	int	i;
+	char*	pc;
+	char*	p1;
 
-	i = 0;
-	c = (char*)malloc(strlen(str));
-	while(str[i] != '\0')
+	pc = (char*)malloc(mystrlen(str) * sizeof(char));
+	p1 = pc;
+	while(*str != '\0')
 	{
-		c[i] = str[i];
-		i++;
+		*p1 = *str;
+		p1++;
+		str++;
 	}
-	return(c);
+	return(pc);
 }
